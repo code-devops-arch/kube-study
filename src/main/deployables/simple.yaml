@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-app
+  labels:
+    app: simple
+    env: dev
+spec:
+  replicas: 1
+  
+  # ReplicaSet Selector
+  selector:
+    matchLabels:
+      app: simple
+      
+  # Pod Template
+  template:
+    metadata:
+      labels:
+        app: simple
+        env: dev           
+    spec:  
+      containers:
+      - name: simple
+        image: simple:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8087
+---
