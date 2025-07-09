@@ -1,5 +1,5 @@
-maven build
-mvn package
+#maven build
+mvn clean package --DskipTests
 
 minikube ssh
 
